@@ -1,0 +1,9 @@
+# overall grade distribution?
+# grade distribution over time?
+# grade distribution per author?
+# grade distribution per author per player?
+# grade distribution per author over time?
+# grade distribution per +/-?
+# grade distribution per player?
+# who tended to have more half-grades?
+# grade distribution ~ goals scored?

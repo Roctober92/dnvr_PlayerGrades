@@ -7,12 +7,15 @@ setwd('~/github/dnvr_PlayerGrades/r')
 
 # load libraries
 library(pacman)
-p_load(tidyverse, ggplot2)
+p_load(tidyverse, ggplot2, lubridate)
+
+# set theme
+theme_set(theme_bw())
 
 
 # make lists
 # game, author, player, grade, gametype, date
-game <- c(1:50)
+game <- c(1:32)
 
 plus_minus <- c()
 
@@ -27,7 +30,7 @@ author <- c('Rawal','Haefele',rep('Rawal',3),'Haefele',rep('Rawal',4),'Haefele',
             'Haefele',rep('Rawal',4))
 
 
-gametype <- c(rep('reg', 50))
+gametype <- c(rep('reg', 32))
 
 players <- tibble(
   player = c('MacKinnon','Makar', 'Burakovsky', 'Landeskog', 'Rantenen', 'Kadri', 'Girard', 'Donskoi', 'Compher',

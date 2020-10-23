@@ -8,3 +8,5 @@
 # who tended to have more half-grades?
 # what are half/whole grade trends as season goes on?
 # grade distribution ~ goals scored?
+# most winningest line-ups?
+# players w,l +/- ?

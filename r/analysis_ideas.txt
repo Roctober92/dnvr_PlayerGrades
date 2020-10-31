@@ -5,6 +5,7 @@
 # grade distribution per author over time?
 # grade distribution per +/-?
 # grade distribution per player?
+# GPA per player
 # who tended to have more half-grades?
 # what are half/whole grade trends as season goes on?
 # grade distribution ~ goals scored?

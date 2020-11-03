@@ -10,4 +10,5 @@
 # what are half/whole grade trends as season goes on?
 # grade distribution ~ goals scored?
 # most winningest line-ups?
+# pct by lineup strength(add up player/point positions per game)
 # players w,l +/- ?

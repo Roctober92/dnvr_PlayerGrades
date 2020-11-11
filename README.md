@@ -1,6 +1,6 @@
 <img src="pics/dnvr.png">
 <br>
-<p id="title">DNVR Avalanche Player Grades</p>
+<p id="title">Avalanche Player Grades</p>
 <br>
 <p id="desc">Just having some fun here! <br> I always wondered if there was both conscious and unconscious influences on arbitrarily assigned grades</p>
 
@@ -11,7 +11,7 @@
 #title{
 margin: auto;
 text-align: center;
-font-size: 60px;
+font-size: 70px;
 color: #660000;
 font-family: 'Bitter', serif;
 }

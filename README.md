@@ -1,4 +1,4 @@
-<img src="pics/dnvr.png">
+<img src="pics/dnvr.png" id="center">
 <br>
 <p id="title">Avalanche Player Grades</p>
 <br>
@@ -21,6 +21,13 @@ margin: auto;
 text-align: center;
 font-size: 20px;
 font-family: 'Roboto', sans-serif;
+}
+
+#center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
 
 </style>

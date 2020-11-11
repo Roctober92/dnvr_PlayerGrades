@@ -33,7 +33,13 @@ grades <- rbind(gm1, gm2, gm3, gm4, gm5, gm6, gm7, gm8, gm9, gm10, gm11, gm12, g
                 gm56, gm58, gm59, gm60, gm61, gm62, gm63, gm64, gm65, gm66, gm67, gm68, gm69, 
                 gm70, gm71, gm72, gm73, gm74, gm75, gm76, gm77, gm79, gm80, gm81, gm82, gm83,
                 gm84) %>% 
-  full_join(players, by = 'player_id') %>% 
+  full_join(players, by = 'player_id') 
+  
+
+# join all info together
+all_info <- base_game %>% 
+  inner_join(grades, by = 'game') %>% 
+  inner_join(gpa) %>% 
   mutate(grade = factor(grade, levels = c('a+',
                                           'a',
                                           'a-',
@@ -49,7 +55,3 @@ grades <- rbind(gm1, gm2, gm3, gm4, gm5, gm6, gm7, gm8, gm9, gm10, gm11, gm12, g
                                           'f+',
                                           'f',
                                           'inc')))
-  
-
-# join all info together
-all_info <- base_game %>% inner_join(grades, by = 'game') %>% inner_join(gpa)

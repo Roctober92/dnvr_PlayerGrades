@@ -1,7 +1,7 @@
 <img src="pics/dnvr.png" id="center">
 <p id="title">Avalanche Player Grades</p>
 <br>
-<p id="desc">Just having some fun here! <br> I always wondered if there was both conscious and unconscious influences on arbitrarily assigned grades</p>
+<p id="desc">Just having some fun here!</p>
 
 
 <style>
@@ -18,7 +18,7 @@ font-family: 'Bitter', serif;
 #desc{
 margin: auto;
 text-align: center;
-font-size: 20px;
+font-size: 35px;
 font-family: 'Roboto', sans-serif;
 }
 

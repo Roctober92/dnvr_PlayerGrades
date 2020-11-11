@@ -18,7 +18,7 @@ font-family: 'Bitter', serif;
 #desc{
 margin: auto;
 text-align: center;
-font-size: 30px;
+font-size: 20px;
 font-family: 'Roboto', sans-serif;
 }
 

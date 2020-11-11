@@ -1,7 +1,7 @@
 <img src="pics/dnvr.png" id="center">
 <p id="title">Avalanche Player Grades</p>
 <br>
-<p id="desc">Just having some fun here!</p>
+<p id="desc">Ready to have some fun looking at grades??</p>
 
 
 <style>

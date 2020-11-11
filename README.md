@@ -1,5 +1,5 @@
 <p id="title">DNVR Avalanche Player Grades</p>
-<p id="desc">Having some fun</p>
+<p id="desc">Just having some fun here! I always wondered if there was both conscious and unconscious influences on arbitrarily assigned grades</p>
 
 
 
@@ -15,11 +15,13 @@
 
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Bitter:wght@500&display=swap');
 #title{
 margin: auto;
 text-align: center;
-font-size: 80px;
+font-size: 60px;
 color: #660000;
+font-family: 'Bitter', serif;
 }
 
 </style>

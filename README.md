@@ -2,6 +2,11 @@
 <p id="title">Avalanche Player Grades</p>
 <br>
 <p id="desc">Just having some fun! Any trends in the grades?</p>
+<br><br>
+<ul id="bullet">
+
+</ul>
+
 
 
 <style>
@@ -18,7 +23,7 @@ font-family: 'Bitter', serif;
 #desc{
 margin: auto;
 text-align: center;
-font-size: 35px;
+font-size: 30px;
 font-family: 'Roboto', sans-serif;
 }
 

@@ -4,6 +4,7 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(DT)
 ```
 
 <p id = "cat">Category</p>
@@ -11,8 +12,41 @@ knitr::opts_chunk$set(echo = TRUE)
 <br><br>
 <p id="portada">La Portada</p>
 <br><br>
-<p id="desc">Have you ever read through power rankings, mock-drafts, or projected standings, and wondered: "does anyone actually ever look back to see how they did?"<br><br>Perhaps it's just me that thinks about this. After all, if they are successful clickbait, even after the predictions/rankings/etc. failed, maybe it doesn't matter after all. <br><br> In any case, this isn't about failing, or being successful: these are arbitrarily assigned player performance grades! And this is just a little bit of fun.<br><br>This is trying to see if we can find anything interesting in a year's worth of player performance grades, which won't probably tell us anything new about the players - but if anything - more about the authors.
-</p>
+<p id="desc">Have you ever read through power rankings, mock-drafts, or projected standings, and wondered: "does anyone actually ever look back to see how they did?"<br><br>Maybe I'm the only one who thinks about that. <br><br>In any case, I don't know if anyone would be interested in seeing if there was anything captivating in DNVR's Avalanche player grades, but I thought it would be cool!
+<br><br><i>Especially since the nature of player grades is so interesting</i>. Tangent to grades in a school, player grades tend to be fairly -  to completely - arbitrary: at the discretion of the author. They are non-standardized, meaning that an <strong>"A"</strong> for Nathan MacKinnon probably isn't the same as an  <strong>"A"</strong> for Matt Nieto. One could say they are a reflection of what how a player performs against what is expected.<br><br>So what could analyzing the grades tell us? Probably what you would expect! A little about how each player's season went, as well as what the authors tend to think about them.</p>
+
+<br><br>
+<p id="portada">A Little Note About the Data:</p>
+<br><br>
+
+<p id="desc">Since a lot of this was messy, manual data input, there are prone to exists typos and errors: I did my best to validate myself, but it was a lot of freaking inputting.<br><br>Also, there are about 5 games that I, or DNVR, omitted from the data. 3 were missing from DNVR's grades section, and for the last 2 games of each playoff series, DNVR decided to do <i>series grades</i> instead of that specific game. And to maintain consistency, I did not include them.</p>
+
+<br><br>
+<p id="portada">The Data</p>
+<br><br>
+
+```{r, message = FALSE, echo = FALSE, warning = FALSE}
+setwd('~/github/dnvr_PlayerGrades/r')
+source('data_wrangle.R', local = knitr::knit_global())
+
+# make data table
+datatable(all_info, class = 'hover', options = list(pageLength = 10),
+          colnames = c("game", 
+                       "date",
+                       "gametype",
+                       "author",
+                       "plus_minus",
+                       "num_goals",
+                       "grade",
+                       "player_id",
+                       "player",
+                       "position",
+                       "gpa Id"))
+
+
+```
+
+
 
 
 <style>

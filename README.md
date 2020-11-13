@@ -2,7 +2,7 @@
 <p id="title">Avalanche Player Grades</p>
 <br>
 <p id="desc">Just having some fun! Any trends in the grades?</p>
-<br><br><br>
+<br><br>
 <ul id="bullet">
   <li class="link"><a href="links/data_overview.html" target="_blank">Data Overview</a></li>
 </ul>

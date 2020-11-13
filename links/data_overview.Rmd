@@ -12,8 +12,7 @@ library(DT)
 <br><br>
 <p id="portada">La Portada</p>
 <br><br>
-<p id="desc">Have you ever read through power rankings, mock-drafts, or projected standings, and wondered: "does anyone actually ever look back to see how they did?"<br><br>Maybe I'm the only one who thinks about that. <br><br>In any case, I don't know if anyone would be interested in seeing if there was anything captivating in DNVR's Avalanche player grades, but I thought it would be cool!
-<br><br><i>Especially since the nature of player grades is so interesting</i>. Tangent to grades in a school, player grades tend to be fairly -  to completely - arbitrary: at the discretion of the author. They are non-standardized, meaning that an <strong>"A"</strong> for Nathan MacKinnon probably isn't the same as an  <strong>"A"</strong> for Matt Nieto. One could say they are a reflection of what how a player performs against what is expected.<br><br>So what could analyzing the grades tell us? Probably what you would expect! A little about how each player's season went, as well as what the authors tend to think about them.</p>
+<p id="desc">This is nothing more, or less, than me wanting to do some post-hoc analysis! I'd thought it would be cool to make a little something-out-of-nothing.<br><br>Is there any insight to extract out of the season's player grades? It's probably what you would expect: a little insight on the players, the season, and even the authors! Since grades are probably mostly subjective, and a reflection of how each player peforms against what is expected.</p>
 
 <br><br>
 <p id="portada">A Little Note About the Data:</p>

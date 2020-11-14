@@ -10,40 +10,77 @@ library(DT)
 <p id = "cat">Category</p>
 <strong><p id = "title">Data Overview</p></strong>
 <br><br>
-<p id="portada">La Portada</p>
+<p id="section">Overall Grade Distribution</p>
+<br>
+<p id="desc">We'll start with the overall grade distribution.<br>You can see right-off-the-bat that whole grades were used much more frequently than partial grades.<br>You can also see that the grades <strong>A</strong>, <strong>B</strong>, and <strong>C</strong> were used the most, around 2.5 times per game.<br>Note that <strong>INC</strong> happened when a player played very little.</p>
 <br><br>
-<p id="desc">This is nothing more, or less, than me wanting to do some post-hoc analysis! I'd thought it would be cool to make a little something-out-of-nothing.<br><br>Is there any insight to extract out of the season's player grades? It's probably what you would expect: a little insight on the players, the season, and even the authors! Since grades are probably mostly subjective, and a reflection of how each player peforms against what is expected.</p>
-
-<br><br>
-<p id="portada">A Little Note About the Data:</p>
-<br><br>
-
-<p id="desc">Since a lot of this was messy, manual data input, there are prone to exists typos and errors: I did my best to validate myself, but it was a lot of freaking inputting.<br><br>Also, there are about 5 games that I, or DNVR, omitted from the data. 3 were missing from DNVR's grades section, and for the last 2 games of each playoff series, DNVR decided to do <i>series grades</i> instead of that specific game. And to maintain consistency, I did not include them.</p>
-
-<br><br>
-<p id="portada">The Data</p>
-<br><br>
-
-```{r, message = FALSE, echo = FALSE, warning = FALSE}
+```{r, message = FALSE, echo = FALSE, warning = FALSE, fig.width=14, fig.height=7}
 setwd('~/github/dnvr_PlayerGrades/r')
 source('data_wrangle.R', local = knitr::knit_global())
 
-# make data table
-datatable(all_info, class = 'hover', options = list(pageLength = 10),
-          colnames = c("game", 
-                       "date",
-                       "gametype",
-                       "author",
-                       "plus_minus",
-                       "num_goals",
-                       "grade",
-                       "player_id",
-                       "player",
-                       "position",
-                       "gpa Id"))
+# overall grade distribution?
+all_info %>% 
+  count(grade) %>% 
+  mutate(per_game = round(n/length(game), 1)) %>% 
+  ggplot(aes(grade, n, fill = grade)) + 
+  geom_histogram(stat = 'identity') +
+  labs(y = 'Frequency',
+       x = 'Grade',
+       subtitle = 'usage per game marked in graph') +
+  theme(legend.position = "none",
+        axis.title.x = element_text(size = rel(2.5)),
+        axis.title.y = element_text(size = rel(2.5)),
+        axis.text.x = element_text(size = rel(2.5)),
+        axis.text.y = element_text(size = rel(2.5)),
+        plot.subtitle = element_text(size = rel(2))) +
+  geom_text(aes(label = per_game), size = 10, nudge_y = 5)
+```
+<br><br><br><br>
+<p id="section">Articles per Author</p>
+<br>
+<p id="desc">Evan Rawal did most of the work.<br>Also note that these dates are when the article was posted, not when the game was played.</p>
+```{r, message = FALSE, echo = FALSE, warning = FALSE, fig.width=18, fig.height=7}
+setwd('~/github/dnvr_PlayerGrades/r')
+source('data_wrangle.R', local = knitr::knit_global())
 
+# author count
+base_game %>% 
+  count(author, date) %>% 
+  count(author, date) %>% 
+  ggplot(aes(x = date, y = n, fill = author)) +
+  geom_bar(stat = 'identity', size = 3.5) +
+  theme(axis.title.x = element_text(size = rel(2.5)),
+        axis.title.y = element_text(size = rel(2.5)),
+        axis.text.x = element_text(size = rel(2.5)),
+        axis.text.y = element_text(size = rel(2.5)),
+        legend.text = element_text(size = rel(2)),
+        legend.title = element_text(size = rel(2))) +
+  labs(x = 'Date Graded', y = '')
+```
+<br><br>
+```{r, message = FALSE, echo = FALSE, warning = FALSE, fig.width=18, fig.height=7}
+setwd('~/github/dnvr_PlayerGrades/r')
+source('data_wrangle.R', local = knitr::knit_global())
+
+# author count
+base_game %>% 
+  count(author) %>%
+  ggplot(aes(author, n, fill = author)) +
+  geom_bar(stat = 'identity') +
+  labs(x = 'Author',
+       y = 'Games Graded') +
+  theme(axis.title.x = element_text(size = rel(2.5)),
+        axis.title.y = element_text(size = rel(2.5)),
+        axis.text.x = element_text(size = rel(2.5)),
+        axis.text.y = element_text(size = rel(2.5)),
+        legend.position = 'none') +
+  geom_text(aes(label = n), size = 10, nudge_y = 5)
 
 ```
+
+
+
+
 
 
 
@@ -71,7 +108,7 @@ datatable(all_info, class = 'hover', options = list(pageLength = 10),
   font-family: 'Roboto', sans-serif;
 }
 
-#portada{
+#section{
   margin: auto;
   text-align: center;
   font-family: 'Zilla Slab', serif;

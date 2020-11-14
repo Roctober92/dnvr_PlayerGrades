@@ -4,6 +4,7 @@
 <p id="desc">Just having some fun! Any trends in the grades?</p>
 <br><br>
 <ul id="bullet">
+  <li class="link"><a href="links/intro.html" target="_blank">Short Introduction</a></li>
   <li class="link"><a href="links/data_overview.html" target="_blank">Data Overview</a></li>
 </ul>
 

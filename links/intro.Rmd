@@ -1,0 +1,82 @@
+---
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(DT)
+```
+
+<p id = "cat">Category</p>
+<strong><p id = "title">Introduction</p></strong>
+<br><br>
+<p id="portada">La Portada</p>
+<br><br>
+<p id="desc">This is nothing more, or less, than me wanting to do some post-hoc analysis! I'd thought it would be cool to make a little something-out-of-nothing.<br><br>Is there any insight to extract out of the season's player grades? It's probably what you would expect: a little insight on the players, the season, and even the authors! Since grades are probably mostly subjective, and a reflection of how each player peforms against what is expected.</p>
+
+<br><br>
+<p id="portada">A Little Note About the Data:</p>
+<br><br>
+
+<p id="desc">Since a lot of this was messy, manual data input, there are prone to exists typos and errors: I did my best to validate myself, but it was a lot of freaking inputting.<br><br>Also, there are about 5 games that I, or DNVR, omitted from the data. 3 were missing from DNVR's grades section, and for the last 2 games of each playoff series, DNVR decided to do <i>series grades</i> instead of that specific game. And to maintain consistency, I did not include them.</p>
+
+<br><br>
+<p id="portada">The Data</p>
+<br><br>
+
+```{r, message = FALSE, echo = FALSE, warning = FALSE}
+setwd('~/github/dnvr_PlayerGrades/r')
+source('data_wrangle.R', local = knitr::knit_global())
+
+# make data table
+datatable(all_info, class = 'hover', options = list(pageLength = 10),
+          colnames = c("game", 
+                       "date",
+                       "gametype",
+                       "author",
+                       "plus_minus",
+                       "num_goals",
+                       "grade",
+                       "player_id",
+                       "player",
+                       "position",
+                       "gpa Id"))
+
+
+```
+
+
+
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@300;500&display=swap');
+
+#cat{
+  margin: auto;
+  text-align: center;
+  font-size: 20px;
+  font-family: 'Roboto', sans-serif;
+}
+
+#title{
+  margin: auto;
+  text-align: center;
+  font-size: 40px;
+  font-family: 'Roboto', sans-serif;
+}
+
+#desc{
+  font-size: 20px;
+  font-family: 'Roboto', sans-serif;
+}
+
+#portada{
+  margin: auto;
+  text-align: center;
+  font-family: 'Zilla Slab', serif;
+  font-size: 30px;
+  color: #2553CC;
+}
+
+</style>

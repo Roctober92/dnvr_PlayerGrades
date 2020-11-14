@@ -1,3 +1,5 @@
+source('data_wrangle.R')
+
 # overall grade distribution?
 all_info %>% 
   count(grade) %>% 
@@ -54,7 +56,7 @@ all_info %>%
             games_played = n()) %>% 
   ggplot(aes(reorder(player, gpa), gpa, fill=games_played)) + 
   geom_bar(stat = 'identity') + 
-  theme(axis.text.x = element_text(angle = 45))
+  theme(axis.text.x = element_text(angle = 90))
 
 # who tended to have more half-grades?
 all_info %>% 
@@ -104,7 +106,8 @@ all_info %>%
   ungroup() %>% 
   mutate(value = plus_minusgame/games) %>% 
   ggplot(aes(reorder(player, value), value)) +
-  geom_bar(stat = 'identity')
+  geom_bar(stat = 'identity') + 
+  theme(axis.text.x = element_text(angle = 90))
 
 # plus-minus, num_goals
 goals %>% ggplot(aes(num_goals, plus_minus)) + geom_point(size = 3)

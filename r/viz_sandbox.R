@@ -1,5 +1,6 @@
 source('data_wrangle.R')
 
+#### data overview
 # overall grade distribution?
 all_info %>% 
   count(grade) %>% 
@@ -17,31 +18,49 @@ all_info %>%
         axis.text.x = element_text(size = rel(1.5)),
         axis.text.y = element_text(size = rel(1.5)))
 
+#### Plus-Minus
 # grade distribution over time?
 all_info %>% 
-  mutate(month = month(date, label = TRUE),
-         month = factor(month, levels = c('Oct',
-                                          'Nov',
-                                          'Dec',
-                                          'Jan',
-                                          'Feb',
-                                          'Mar',
-                                          'Aug',
-                                          'Sep'))) %>%
+  mutate(month = month(date, label = TRUE)) %>% 
   count(grade, month) %>% 
-  ggplot(aes(grade, n, fill = grade)) + geom_histogram(stat = 'identity') + facet_wrap(~month)
-
-# grade distribution per author?
-
-
-# grade distribution per author per player?
-
-
-# grade distribution per author over time?
-
+  inner_join(record) %>% 
+  mutate(record = factor(record, levels = c('Oct 8-4',
+                                          'Nov 8-6',
+                                          'Dec 7-6',
+                                          'Jan 5-4',
+                                          'Feb 11-3',
+                                          'Mar 3-3',
+                                          'Aug 6-5',
+                                          'Sep 2-0'))) %>% 
+  ggplot(aes(grade, n, fill = grade)) + geom_histogram(stat = 'identity') + facet_wrap(~record)
 
 # grade distribution per +/-?
 all_info %>% count(grade, plus_minus) %>% ggplot(aes(grade, n, fill = grade)) + geom_histogram(stat = 'identity') + facet_wrap(~plus_minus)
+
+# gpa per +/-
+all_info %>% 
+  group_by(plus_minus) %>% 
+  summarise(gpa = mean(gpa, na.rm = TRUE),
+            count = n()) %>% 
+  ggplot(aes(plus_minus,gpa, fill = count)) + geom_bar(stat = 'identity')
+
+# game plus-minus by players
+all_info %>% 
+  group_by(player) %>% 
+  summarise(plus_minusgame = sum(plus_minus),
+            games = n()) %>% 
+  ungroup() %>% 
+  mutate(value = plus_minusgame/games) %>% 
+  ggplot(aes(reorder(player, value), value)) +
+  geom_bar(stat = 'identity') + 
+  theme(axis.text.x = element_text(angle = 90))
+
+# plus-minus, num_goals
+goals %>% ggplot(aes(num_goals, plus_minus)) + geom_point(size = 3)
+
+
+
+#### Per player
 
 # grade distribution per player?
 all_info %>% count(grade, player) %>% ggplot(aes(grade, n, fill = grade)) + geom_histogram(stat = 'identity') + facet_wrap(~player)
@@ -58,6 +77,8 @@ all_info %>%
   geom_bar(stat = 'identity') + 
   theme(axis.text.x = element_text(angle = 90))
 
+
+#### half grades
 # who tended to have more half-grades?
 all_info %>% 
   mutate(positive = str_detect(grade, '\\+'),
@@ -86,6 +107,10 @@ all_info %>%
   count(month, half_grade) %>% 
   ggplot(aes(month, n, fill = half_grade)) + geom_bar(position = 'dodge', stat = 'identity')
 
+
+
+#### goals scored
+
 # grade distribution ~ goals scored?
 all_info %>% count(grade, num_goals) %>% ggplot(aes(grade, n, fill = grade)) + geom_histogram(stat = 'identity') + facet_wrap(~num_goals)
 
@@ -98,16 +123,3 @@ all_info %>%
   geom_bar(stat = 'identity') + 
   theme(axis.text.x = element_text(angle = 45))
 
-# game plus-minus by players
-all_info %>% 
-  group_by(player) %>% 
-  summarise(plus_minusgame = sum(plus_minus),
-            games = n()) %>% 
-  ungroup() %>% 
-  mutate(value = plus_minusgame/games) %>% 
-  ggplot(aes(reorder(player, value), value)) +
-  geom_bar(stat = 'identity') + 
-  theme(axis.text.x = element_text(angle = 90))
-
-# plus-minus, num_goals
-goals %>% ggplot(aes(num_goals, plus_minus)) + geom_point(size = 3)

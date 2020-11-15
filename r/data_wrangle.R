@@ -13,7 +13,8 @@ goals <- tibble(
   plus_minus = plus_minus,
   num_goals = total_goals
 ) %>% 
-  mutate(game = 1:nrow(.))
+  mutate(game = 1:nrow(.),
+         outcome = ifelse(plus_minus > 0, 'W', 'L'))
 
 # create game info table
 base_game <- tibble(
@@ -24,6 +25,17 @@ base_game <- tibble(
 ) %>% 
   mutate(date = as_date(date)) %>% 
   inner_join(goals)
+
+# record table
+record <- base_game %>% 
+  mutate(month = month(date, label = TRUE)) %>% 
+  count(month, outcome) %>% 
+  pivot_wider(names_from = outcome,
+              values_from = n,
+              values_fill = 0) %>% 
+  mutate(record = str_c(W, L, sep = '-'),
+         record = str_c(month, record, sep = ' ')) %>% 
+  select(month, record)
 
 # create grade info table
 grades <- rbind(gm1, gm2, gm3, gm4, gm5, gm6, gm7, gm8, gm9, gm10, gm11, gm12, gm13, gm14, gm15,

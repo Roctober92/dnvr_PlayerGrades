@@ -8,8 +8,100 @@ library(DT)
 ```
 
 <p id = "cat">Category</p>
-<strong><p id = "title">Plus-Minus & Grades</p></strong>
+<strong><p id = "title">Performance & Grades</p></strong>
 <br><br>
+<p id="section">Grades over Time</p>
+<br>
+<p id="desc">One of the first questions I jotted down when looking through the data was <i>how did the grades look in respect to time</i>?<br><br>I decided to break "time" down into individual months. It seemed like the appropriate granularity, having about 10 games per month.<br><br>The following is the first graph shown in <strong> Data Overview</strong>, broken up into monthly buckets.</p>
+
+```{r, message = FALSE, echo = FALSE, warning = FALSE, fig.width=14, fig.height=14}
+setwd('~/github/dnvr_PlayerGrades/r')
+source('data_wrangle.R', local = knitr::knit_global())
+
+# grades per month
+all_info %>% 
+  mutate(month = month(date, label = TRUE)) %>% 
+  count(grade, month) %>% 
+  inner_join(record) %>% 
+  mutate(record = factor(record, levels = c('Oct 8-4',
+                                          'Nov 8-6',
+                                          'Dec 7-6',
+                                          'Jan 5-4',
+                                          'Feb 11-3',
+                                          'Mar 3-3',
+                                          'Aug 6-5',
+                                          'Sep 2-0'))) %>% 
+  ggplot(aes(grade, n, fill = grade)) + geom_histogram(stat = 'identity') + facet_wrap(~record, nrow = 4) +
+  theme(legend.position = "none",
+        axis.title.x = element_text(size = rel(2.5)),
+        axis.title.y = element_text(size = rel(2.5)),
+        axis.text.x = element_text(size = rel(2.5)),
+        axis.text.y = element_text(size = rel(2.5)),
+        plot.subtitle = element_text(size = rel(2)),
+        strip.text = element_text(size=25)) +
+  labs(x = 'Grade',
+       y = 'Frequency')
+
+```
+
+<br>
+<p id="desc">One thing that may immediately come to mind is that <strong>record</strong> is probably the most influential factor on grades, and much moreso than <strong>time</strong>.You can see that in the difference of spread between January and February.<br><br>The one way I see **time** being influential is if the author himself had his grading method change over time, or suddenly during an event, or events, over time. That would be difficult to measure. Other variables - like team record - would have to be constant, or made constant through normalization.</p>
+
+<br><br>
+<p id="section">Performance by Scoring Differential</p>
+<br>
+
+<p id="desc">One way we could analyze how game outcome affects grades, would be to map the outcome: whether it was a win, or a loss, against the grades.<br><br>However, it would be just as useful, if not more granular, to map it against the game's scoring differential, or the team's +/-.<br><br> Obviously a positive differential means a win, and a negative, a loss.</p>
+
+```{r, message = FALSE, echo = FALSE, warning = FALSE, fig.width=10, fig.height=10}
+setwd('~/github/dnvr_PlayerGrades/r')
+source('data_wrangle.R', local = knitr::knit_global())
+
+# grade distribution per +/-?
+all_info %>% 
+  count(grade, plus_minus) %>% 
+  ggplot(aes(grade, n, fill = grade)) + 
+  geom_histogram(stat = 'identity') + 
+  facet_wrap(~plus_minus, nrow = 3) +
+  theme(legend.position = "none",
+        axis.title.x = element_text(size = rel(1.5)),
+        axis.title.y = element_text(size = rel(1.5)),
+        axis.text.x = element_text(size = rel(1), angle = 90),
+        axis.text.y = element_text(size = rel(1.5)),
+        plot.subtitle = element_text(size = rel(2)),
+        strip.text = element_text(size=25)) +
+  labs(x = 'Grades',
+       y = 'Frequency')
+
+
+```
+
+<p id="desc">As expected, the grades shift towards the left *(higher)* when the Avs' scoring differential is higher.<br><br>However, it's still a little hard to see. To make it easier, I mapped the grades to a *GPA* system, probably very similar to the one colleges use *(0-4)*.</p>
+
+
+
+```{r, message = FALSE, echo = FALSE, warning = FALSE, fig.width=10, fig.height=7}
+setwd('~/github/dnvr_PlayerGrades/r')
+source('data_wrangle.R', local = knitr::knit_global())
+
+# gpa per +/-
+all_info %>% 
+  group_by(plus_minus) %>% 
+  summarise(gpa = mean(gpa, na.rm = TRUE),
+            count = n()) %>% 
+  ggplot(aes(plus_minus,gpa, fill = count)) + geom_bar(stat = 'identity') +
+  theme(axis.title.x = element_text(size = rel(1.5)),
+        axis.title.y = element_text(size = rel(1.5)),
+        axis.text.x = element_text(size = rel(1), angle = 90),
+        axis.text.y = element_text(size = rel(1.5)),
+        plot.subtitle = element_text(size = rel(2)),
+        strip.text = element_text(size=25)) +
+  labs(x = 'Differential',
+       y = 'GPA')
+
+```
+
+
 
 
 

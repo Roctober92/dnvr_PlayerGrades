@@ -12,7 +12,7 @@ library(DT)
 <br><br>
 <p id="portada">La Portada</p>
 <br><br>
-<p id="desc">This is nothing more, or less, than me wanting to do some post-hoc analysis! I'd thought it would be cool to make a little something-out-of-nothing.<br><br>Is there any insight to extract out of the season's player grades? It's probably what you would expect: a little insight on the players, the season, and even the authors! Since grades are probably mostly subjective, and a reflection of how each player peforms against what is expected.</p>
+<p id="desc">This is nothing more, or less, than me wanting to do some post-hoc analysis. I'd thought it would be cool to make a little something-out-of-nothing.<br><br>Is there any insight to extract out of the season's player grades? It's probably what you would expect: a little insight on the players, the season, and even the authors!</p>
 
 <br><br>
 <p id="portada">A Little Note About the Data:</p>

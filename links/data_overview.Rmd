@@ -38,7 +38,7 @@ all_info %>%
 <br><br><br><br>
 <p id="section">Articles per Author</p>
 <br>
-<p id="desc">Evan Rawal did most of the work.<br>Also note that these dates are when the article was posted, not when the game was played.</p>
+<p id="desc">Looks like this is mostly Evan's assignment.<br>Also note that these dates are when the article was posted, not when the game was played.</p>
 ```{r, message = FALSE, echo = FALSE, warning = FALSE, fig.width=18, fig.height=7}
 setwd('~/github/dnvr_PlayerGrades/r')
 source('data_wrangle.R', local = knitr::knit_global())

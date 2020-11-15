@@ -4,8 +4,9 @@
 <p id="desc">Just having some fun! Any trends in the grades?</p>
 <br><br>
 <ul id="bullet">
-  <li class="link"><a href="links/intro.html" target="_blank">Short Introduction</a></li>
-  <li class="link"><a href="links/data_overview.html" target="_blank">Data Overview</a></li>
+  <li id = "list"><a class="link" href="links/intro.html">Short Introduction</a></li>
+  <li id = "list"><a class="link" href="links/data_overview.html">Data Overview</a></li>
+  <li id = "list"><a class="link_code" href="https://github.com/Roctober92/dnvr_PlayerGrades">Full Code</a></li>
 </ul>
 
 
@@ -38,12 +39,23 @@
 
 #bullet{
   list-style-type: square;
+  color: 'black';
 }
 
 .link{
   font-size: 50px;
   font-family: 'Roboto', sans-serif;
   color: #2553CC;
+}
+
+.link_code{
+  font-size: 50px;
+  font-family: 'Roboto', sans-serif;
+  color: #17BD0F;
+}
+
+#list{
+  font-size: 30px;
 }
 
 

@@ -35,7 +35,11 @@ all_info %>%
   ggplot(aes(grade, n, fill = grade)) + geom_histogram(stat = 'identity') + facet_wrap(~record)
 
 # grade distribution per +/-?
-all_info %>% count(grade, plus_minus) %>% ggplot(aes(grade, n, fill = grade)) + geom_histogram(stat = 'identity') + facet_wrap(~plus_minus)
+all_info %>% 
+  count(grade, plus_minus) %>% 
+  ggplot(aes(grade, n, fill = grade)) + 
+  geom_histogram(stat = 'identity') + 
+  facet_wrap(~plus_minus)
 
 # gpa per +/-
 all_info %>% 

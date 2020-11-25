@@ -6,7 +6,7 @@
 <ul id="bullet">
   <li id = "list"><a class="link" href="links/intro.html">Short Introduction</a></li>
   <li id = "list"><a class="link" href="links/data_overview.html">Data Overview</a></li>
-  <li id = "list"><a class="link" href="links/plus_minus.html">Team Performance</a></li>
+  <li id = "list"><a class="link" href="links/plus_minus.html">Performance</a></li>
   <li id = "list"><a class="link" href="">By Player</a></li>
   <li id = "list"><a class="link" href="">Partial Grades</a></li>
   <li id = "list"><a class="link" href="">Goals Scored</a></li>

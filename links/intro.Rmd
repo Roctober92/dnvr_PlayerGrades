@@ -12,7 +12,7 @@ library(DT)
 <br><br>
 <p id="portada">La Portada</p>
 <br><br>
-<p id="desc">I think looking through data is always fun. And even though player grades aren't usually made with post-hoc analysis in mind, I always think it would be fun to look through the information regardless, form a few questions. <br><br>Some questions that came to my mind when scanning through the grades week-by-week were: <br><br>*1: Which players had the overall best grades, and does that match up with expectations?*<br>*2: How many partial grades are there, and how does their issuing change over time?*<br>*3: How does the Avs' performance influence the grades?*<br><br>I didn't do a formal/thought-out process of asking questions, forming hypothesis, and then analyzing, but I try to explore a few questions in the provided links.</p>
+<p id="desc">I think looking through data is always fun. And even though player grades aren't usually made with post-hoc analysis in mind, I always think it would be fun to look through the information regardless, form a few questions. <br><br>Some questions that came to my mind when scanning through the grades week-by-week were: <br><br>*1: Which players had the overall best grades, and does that match up with expectations?*<br>*2: How many partial grades are there, and how does their issuing change over time?*<br>*3: How does the Avs' performance influence the grades?*<br><br>I didn't do a formal/thought-out process of asking questions, forming hypothesis, and then analyzing, but I try to explore a few questions in the provided links.<br><br></p>
 
 <br><br>
 <p id="portada">A Little Note About the Data:</p>

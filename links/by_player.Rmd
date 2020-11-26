@@ -23,16 +23,43 @@ all_info %>%
   count(grade, player) %>% 
   ggplot(aes(grade, n, fill = grade)) + 
   geom_histogram(stat = 'identity') + 
-  facet_wrap(~player)
+  facet_wrap(~player) +
+  labs(x = 'Grades',
+       y = 'Frequency') +
+  theme(strip.text = element_text(size = rel(1.5)),
+        axis.title = element_text(size = rel(1.5)),
+        axis.text.y = element_text(size = rel(1.5)))
 ```
 
+<p id='desc'>From this, you can kind of get an idea how each player fared. It's also interesting to see how the distribution shapes differ between players. It kind of gives you a window into how expectations are for them.<br><br> For example, how some players tended to receive a "default" grade. <i>(Donskoi was given a **D** grade much more frequent than his other grades.)</i></p>
 
+<br><br>
+<p id="section">GPA By Player</p>
+<br>
 
+<p id="desc">Distributions are great. But just like we did in the other page, it's easier to see the overall grade of a player when mapped to a GPA<br><br>This is one of my favorite graphics.</p>
 
+```{r, message = FALSE, echo = FALSE, warning = FALSE, fig.width=14, fig.height=10}
+setwd('~/github/dnvr_PlayerGrades/r')
+source('data_wrangle.R', local = knitr::knit_global())
 
+# GPA per player
+all_info %>% 
+  group_by(player) %>% 
+  summarise(gpa = mean(gpa, na.rm = TRUE),
+            games_played = n()) %>% 
+  ggplot(aes(reorder(player, gpa), gpa, fill=games_played)) + 
+  geom_bar(stat = 'identity') + 
+  labs(x = 'Players',
+       y = 'GPA') +
+  theme(axis.text.x = element_text(angle = 90),
+        axis.text = element_text(size = rel(1.5)),
+        axis.title = element_text(size = rel(1.5)),
+        legend.text = element_text(size = rel(1.5)),
+        legend.title = element_text(size = rel(1.5)))
+```
 
-
-
+<p id='desc'></p>
 
 
 

@@ -31,13 +31,13 @@ all_info %>%
         axis.text.y = element_text(size = rel(1.5)))
 ```
 
-<p id='desc'>From this, you can kind of get an idea how each player fared. It's also interesting to see how the distribution shapes differ between players. It kind of gives you a window into how expectations are for them.<br><br> For example, how some players tended to receive a "default" grade. <i>(Donskoi was given a **D** grade much more frequent than his other grades.)</i><br><br>I think this graphic - combined with the next graphic - tell more about the nature of player grades than anything else.</p>
+<p id='desc'>From this, you can kind of get an idea how each player fared. It's also interesting to see how the distribution shapes differ between players. For example, some players received much more *partial grades* than others.Was it because more thought was put into them?<br><br> It's also intersting how some players tended to receive a "default" grade. <i>(Donskoi was given a **D** grade much more frequent than his other grades.)</i><br><br>I think this graphic - combined with the next graphic - tell more about the nature of player grades than anything else.</p>
 
 <br><br>
 <p id="section">GPA by Player</p>
 <br>
 
-<p id="desc">Distributions are great. But just like we did in the other page, it's easier to see the overall grade of a player when mapped to a GPA<br><br>This is one of my favorite graphics.</p>
+<p id="desc">Distributions are great. But it's easier to see the overall grade of a player when mapped to a GPA<br><br>This is one of my favorite graphics.</p>
 
 ```{r, message = FALSE, echo = FALSE, warning = FALSE, fig.width=14, fig.height=10}
 setwd('~/github/dnvr_PlayerGrades/r')

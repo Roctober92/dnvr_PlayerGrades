@@ -12,7 +12,7 @@ library(DT)
 <br><br>
 <p id="section">Record & Time</p>
 <br>
-<p id="desc">One of the first questions I jotted down when looking through the data was <i>how did the grades look in respect to time</i>?<br><br>I decided to break "time" down into individual months. It seemed like the appropriate granularity, having about 10 games per month.<br><br>The following is the first graph shown in <strong> Data Overview</strong>, broken up into monthly buckets *(their win-loss record in the title)*.</p>
+<p id="desc">We'll look at a few graphics that map performance metrics to grades.<br><br>Now, performance can be measured in many different ways. For here, we'll just keep it at *record* and *scoring differential*.<br><br>Below, you can see how the grades map to the monthly record.</p>
 
 ```{r, message = FALSE, echo = FALSE, warning = FALSE, fig.width=14, fig.height=14}
 setwd('~/github/dnvr_PlayerGrades/r')
@@ -45,7 +45,7 @@ all_info %>%
 ```
 
 <br>
-<p id="desc">Here we have **time**, and **record**. Time itself probably is a difficult variable to analyze, since record probably influences the grades more. However, in the pictures you can see that *partial grades* seem to be more used as time went on. Was that a thing? The *partial grades* section may have more.<br><br>**Record** seems like it has some sort of a sway. In months where their record was better, the distribution seems to hug the left a little more.<br><br>Record is nice, but isn't the only proxy for performance.</p>
+<p id="desc">It appears that shift slightly left with a better record.<br><br> For what it's worth, it also appears that there is a higher proportion of *partial grades* as the season went on. I always wondered if the tendency to issue *partial grades* would be affected over time.</p>
 
 <br><br>
 <p id="section">Performance by Scoring Differential</p>

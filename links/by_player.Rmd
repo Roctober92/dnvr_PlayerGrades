@@ -10,7 +10,7 @@ library(DT)
 <p id = "cat">Category</p>
 <strong><p id = "title">By Player</p></strong>
 <br><br>
-<p id="section">Distribution Per Player</p>
+<p id="section">Distribution by Player</p>
 <br>
 <p id='desc'>How does the grade distribution per player look like? I think that's one of the first questions that came to my mind.</p>
 
@@ -31,10 +31,10 @@ all_info %>%
         axis.text.y = element_text(size = rel(1.5)))
 ```
 
-<p id='desc'>From this, you can kind of get an idea how each player fared. It's also interesting to see how the distribution shapes differ between players. It kind of gives you a window into how expectations are for them.<br><br> For example, how some players tended to receive a "default" grade. <i>(Donskoi was given a **D** grade much more frequent than his other grades.)</i></p>
+<p id='desc'>From this, you can kind of get an idea how each player fared. It's also interesting to see how the distribution shapes differ between players. It kind of gives you a window into how expectations are for them.<br><br> For example, how some players tended to receive a "default" grade. <i>(Donskoi was given a **D** grade much more frequent than his other grades.)</i><br><br>I think this graphic - combined with the next graphic - tell more about the nature of player grades than anything else.</p>
 
 <br><br>
-<p id="section">GPA By Player</p>
+<p id="section">GPA by Player</p>
 <br>
 
 <p id="desc">Distributions are great. But just like we did in the other page, it's easier to see the overall grade of a player when mapped to a GPA<br><br>This is one of my favorite graphics.</p>
@@ -59,7 +59,34 @@ all_info %>%
         legend.title = element_text(size = rel(1.5)))
 ```
 
-<p id='desc'></p>
+<p id='desc'>A few players didn't play as many games *(Hutchinson, Kaut)*, so keep that in mind. <br><br>But this graphic is very interesting. *Why is Calvert so high? Why is Compher so low?*</p>
+
+<br><br>
+<p id="section">Distribution by Position</p>
+<br>
+
+<p id='desc'>Here's another graphic that's related. How is the distribution by position?</p>
+
+```{r, message = FALSE, echo = FALSE, warning = FALSE, fig.width=14, fig.height=10}
+setwd('~/github/dnvr_PlayerGrades/r')
+source('data_wrangle.R', local = knitr::knit_global())
+
+# grade distribution per position
+all_info %>% 
+  count(grade, position) %>% 
+  ggplot(aes(grade, n, fill = grade)) + 
+  geom_histogram(stat = 'identity') + 
+  facet_wrap(~position) +
+  labs(x = 'Grade',
+       y = 'Frequency') +
+  theme(legend.position = "none",
+        axis.title = element_text(size = rel(2)),
+        strip.text = element_text(size = rel(1.5)),
+        axis.text.x = element_text(size = rel(1.5)),
+        axis.text.y = element_text(size = rel(2)))
+
+```
+
 
 
 
@@ -83,7 +110,7 @@ all_info %>%
 }
 
 #desc{
-  font-size: 20px;
+  font-size: 18px;
   font-family: 'Roboto', sans-serif;
 }
 

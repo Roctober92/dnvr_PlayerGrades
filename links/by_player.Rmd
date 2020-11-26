@@ -10,8 +10,21 @@ library(DT)
 <p id = "cat">Category</p>
 <strong><p id = "title">By Player</p></strong>
 <br><br>
-<p id="section"></p>
+<p id="section">Distribution Per Player</p>
 <br>
+<p id='desc'>How does the grade distribution per player look like? I think that's one of the first questions that came to my mind.</p>
+
+```{r, message = FALSE, echo = FALSE, warning = FALSE, fig.width=14, fig.height=14}
+setwd('~/github/dnvr_PlayerGrades/r')
+source('data_wrangle.R', local = knitr::knit_global())
+
+# grade distribution per player?
+all_info %>% 
+  count(grade, player) %>% 
+  ggplot(aes(grade, n, fill = grade)) + 
+  geom_histogram(stat = 'identity') + 
+  facet_wrap(~player)
+```
 
 
 

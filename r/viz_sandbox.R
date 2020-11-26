@@ -59,9 +59,6 @@ all_info %>%
   geom_bar(stat = 'identity') + 
   theme(axis.text.x = element_text(angle = 90))
 
-# plus-minus, num_goals
-goals %>% ggplot(aes(num_goals, plus_minus)) + geom_point(size = 3)
-
 
 
 #### Per player
@@ -126,4 +123,7 @@ all_info %>%
   ggplot(aes(num_goals, gpa, fill=games_played)) + 
   geom_bar(stat = 'identity') + 
   theme(axis.text.x = element_text(angle = 45))
+
+# plus-minus, num_goals
+goals %>% ggplot(aes(num_goals, plus_minus)) + geom_point(size = 3)
 

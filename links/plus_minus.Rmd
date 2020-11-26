@@ -66,7 +66,7 @@ all_info %>%
   theme(legend.position = "none",
         axis.title.x = element_text(size = rel(1.5)),
         axis.title.y = element_text(size = rel(1.5)),
-        axis.text.x = element_text(size = rel(1), angle = 90),
+        axis.text.x = element_text(size = rel(1)),
         axis.text.y = element_text(size = rel(1.5)),
         plot.subtitle = element_text(size = rel(2)),
         strip.text = element_text(size=25)) +
@@ -92,7 +92,7 @@ all_info %>%
   ggplot(aes(plus_minus,gpa, fill = count)) + geom_bar(stat = 'identity') +
   theme(axis.title.x = element_text(size = rel(1.5)),
         axis.title.y = element_text(size = rel(1.5)),
-        axis.text.x = element_text(size = rel(1), angle = 90),
+        axis.text.x = element_text(size = rel(1.5)),
         axis.text.y = element_text(size = rel(1.5)),
         plot.subtitle = element_text(size = rel(2)),
         strip.text = element_text(size=25)) +

@@ -91,6 +91,8 @@ all_info %>%
   facet_wrap(~position, nrow = 3) + 
   theme(axis.text.x = element_text(angle = 90))
 
+
+
 # what are half/whole grade trends as season goes on?
 all_info %>% 
   mutate(positive = str_detect(grade, '\\+'),

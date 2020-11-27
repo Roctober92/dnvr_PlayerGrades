@@ -1,0 +1,133 @@
+---
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(DT)
+```
+
+<p id = "cat">Category</p>
+<strong><p id = "title">Partial Grades</p></strong>
+<br><br>
+<p id="section">Explanation</p>
+<br>
+
+<p id='desc'>One of the things I thought would be interesting to analyze is the use of *partial grades*, or when the letter grade has a **+** or **-**.<br><br>This is because of the arbitrary nature of player grades. Does the author have a tendency to give partial grades to certain players over others? Has that tendency changed over time? If any trend is detected, it probably was done subconsciously, I imagine, and probably doesn't offer anything of worth - but is fun to look at, nonetheless.</p>
+
+<br><br>
+<p id="section"> By Player</p>
+<br>
+
+<p id='desc'>It may take a second to adjust to this graph, but it's the partial grade distribution of each player, ordered by % partial.</p>
+
+```{r, message = FALSE, echo = FALSE, warning = FALSE, fig.width=14, fig.height=11}
+setwd('~/github/dnvr_PlayerGrades/r')
+source('data_wrangle.R', local = knitr::knit_global())
+
+# who tended to have more half-grades?
+by_player <- all_info %>% 
+  mutate(positive = str_detect(grade, '\\+'),
+         negative = str_detect(grade, '\\-'),
+         half_grade = ifelse(positive == TRUE | negative == TRUE, 'yes', 'no')) %>% 
+  count(player, half_grade, position)
+
+# % per player
+percentage <- by_player %>% 
+  pivot_wider(names_from = half_grade,
+              values_from = n,
+              values_fill = 0) %>% 
+  mutate(total = yes + no,
+         perc = yes/total)
+
+
+percentage %>% 
+  select(player, perc) %>% 
+  inner_join(by_player) %>% 
+  ggplot(aes(reorder(player, perc), n, fill = half_grade)) + 
+  geom_bar(position = 'dodge', stat = 'identity') + 
+  facet_wrap(~position, nrow = 3) + 
+  labs(x = 'Player',
+       y = 'Frequency') +
+  theme(axis.text.x = element_text(angle = 90, size = rel(1.5)),
+        axis.title = element_text(size = rel(2), face = "bold"),
+        strip.text = element_text(size = rel(1.5)),
+        axis.text.y = element_text(size = rel(1.5)),
+        legend.text = element_text(size = rel(1.5)),
+        legend.title = element_text(size = rel(1.5)))
+
+```
+
+<p id="desc">Is there a rhyme or reason to why MacKinnon, Jost, and Nichuskin all have high partial grade %?<br><br>If you want to see the actual grade distributions per player, please refer back to the *By Player* section.</p>
+
+<br><br>
+<p id="section">Over Time</p>
+<br>
+
+<p id="desc">Did time affect the behavior?</p>
+
+```{r, message = FALSE, echo = FALSE, warning = FALSE, fig.width=14, fig.height=9}
+setwd('~/github/dnvr_PlayerGrades/r')
+source('data_wrangle.R', local = knitr::knit_global())
+
+# what are half/whole grade trends as season goes on?
+all_info %>% 
+  mutate(positive = str_detect(grade, '\\+'),
+         negative = str_detect(grade, '\\-'),
+         half_grade = ifelse(positive == TRUE | negative == TRUE, 'yes', 'no'),
+         month = month(date, label = TRUE),
+         month = factor(month, levels = c('Oct',
+                                          'Nov',
+                                          'Dec',
+                                          'Jan',
+                                          'Feb',
+                                          'Mar',
+                                          'Aug',
+                                          'Sep'))) %>%
+  count(month, half_grade) %>% 
+  ggplot(aes(month, n, fill = half_grade)) + 
+  geom_bar(position = 'dodge', stat = 'identity') + 
+  labs(x = 'Month',
+       y = 'Frequency') +
+  theme(axis.text = element_text(size = rel(1.5)),
+        axis.title = element_text(size = rel(2), face = "bold"),
+        legend.text = element_text(size = rel(1.5)),
+        legend.title = element_text(size = rel(1.5)))
+  
+```
+
+<p id="desc">It kind of seems like nothing's there.<br><br>But keep in mind that the season reached a hiatus in mid-march - and it might have acted like a reset button.<br><br>If I were making tens of grades per month, I'm sure I might change my partial grade issuing pattern - whether that be more, or less. And it seems like until the season hit the mid-march halt, that partial grades were becoming more and more prevalent - and then reset back to less frequent, once the season resumed in late-summer.<br><br>I feel like I could make a lot of assumptions about how the author's thought process affected some patterns we see - but he/they would have to say :)</p>
+
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@300;500&display=swap');
+
+#cat{
+  margin: auto;
+  text-align: center;
+  font-size: 20px;
+  font-family: 'Roboto', sans-serif;
+}
+
+#title{
+  margin: auto;
+  text-align: center;
+  font-size: 40px;
+  font-family: 'Roboto', sans-serif;
+}
+
+#desc{
+  font-size: 18px;
+  font-family: 'Roboto', sans-serif;
+}
+
+#section{
+  margin: auto;
+  text-align: center;
+  font-family: 'Zilla Slab', serif;
+  font-size: 30px;
+  color: #2553CC;
+}
+
+</style>

@@ -8,7 +8,7 @@
   <li id = "list"><a class="link" href="links/data_overview.html">Data Overview</a></li>
   <li id = "list"><a class="link" href="links/plus_minus.html">Performance</a></li>
   <li id = "list"><a class="link" href="links/by_player.html">By Player</a></li>
-  <li id = "list"><a class="link" href="">Partial Grades</a></li>
+  <li id = "list"><a class="link" href="links/partial_grades.html">Partial Grades</a></li>
   <li id = "list"><a class="link" href="">Goals Scored</a></li>
   <li id = "list"><a class="link_code" href="https://github.com/Roctober92/dnvr_PlayerGrades">Full Code</a></li>
 </ul>

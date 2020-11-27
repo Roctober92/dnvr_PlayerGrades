@@ -67,7 +67,7 @@ datatable(all_info, class = 'hover', options = list(pageLength = 10),
 }
 
 #desc{
-  font-size: 20px;
+  font-size: 18px;
   font-family: 'Roboto', sans-serif;
 }
 

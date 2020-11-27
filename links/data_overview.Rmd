@@ -28,8 +28,7 @@ all_info %>%
        x = 'Grade',
        subtitle = 'usage per game marked in graph') +
   theme(legend.position = "none",
-        axis.title.x = element_text(size = rel(2.5)),
-        axis.title.y = element_text(size = rel(2.5)),
+        axis.title = element_text(size = rel(2.5), face = "bold"),
         axis.text.x = element_text(size = rel(2.5)),
         axis.text.y = element_text(size = rel(2.5)),
         plot.subtitle = element_text(size = rel(2))) +
@@ -49,15 +48,13 @@ base_game %>%
   count(author, date) %>% 
   ggplot(aes(x = date, y = n, fill = author)) +
   geom_bar(stat = 'identity', size = 3.5) +
-  theme(axis.title.x = element_text(size = rel(2.5)),
-        axis.title.y = element_text(size = rel(2.5)),
-        axis.text.x = element_text(size = rel(2.5)),
-        axis.text.y = element_text(size = rel(2.5)),
+  theme(axis.title = element_text(size = rel(2.5), face = "bold"),
+        axis.text = element_text(size = rel(2.5)),
         legend.text = element_text(size = rel(2)),
         legend.title = element_text(size = rel(2))) +
   labs(x = 'Date Graded', y = '')
 ```
-<br><br>
+<br><br><br><br>
 ```{r, message = FALSE, echo = FALSE, warning = FALSE, fig.width=18, fig.height=7}
 setwd('~/github/dnvr_PlayerGrades/r')
 source('data_wrangle.R', local = knitr::knit_global())
@@ -69,10 +66,8 @@ base_game %>%
   geom_bar(stat = 'identity') +
   labs(x = 'Author',
        y = 'Games Graded') +
-  theme(axis.title.x = element_text(size = rel(2.5)),
-        axis.title.y = element_text(size = rel(2.5)),
-        axis.text.x = element_text(size = rel(2.5)),
-        axis.text.y = element_text(size = rel(2.5)),
+  theme(axis.title = element_text(size = rel(2.5), face = "bold"),
+        axis.text = element_text(size = rel(2.5)),
         legend.position = 'none') +
   geom_text(aes(label = n), size = 10, nudge_y = 5)
 
@@ -104,7 +99,7 @@ base_game %>%
 }
 
 #desc{
-  font-size: 20px;
+  font-size: 18px;
   font-family: 'Roboto', sans-serif;
 }
 

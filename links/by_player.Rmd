@@ -27,7 +27,7 @@ all_info %>%
   labs(x = 'Grades',
        y = 'Frequency') +
   theme(strip.text = element_text(size = rel(1.5)),
-        axis.title = element_text(size = rel(1.5)),
+        axis.title = element_text(size = rel(1.5), face = "bold"),
         axis.text.y = element_text(size = rel(1.5)))
 ```
 
@@ -54,7 +54,7 @@ all_info %>%
        y = 'GPA') +
   theme(axis.text.x = element_text(angle = 90),
         axis.text = element_text(size = rel(1.5)),
-        axis.title = element_text(size = rel(1.5)),
+        axis.title = element_text(size = rel(1.5), face = "bold"),
         legend.text = element_text(size = rel(1.5)),
         legend.title = element_text(size = rel(1.5)))
 ```
@@ -77,10 +77,10 @@ all_info %>%
   ggplot(aes(grade, n, fill = grade)) + 
   geom_histogram(stat = 'identity') + 
   facet_wrap(~position) +
-  labs(x = 'Grade',
+  labs(x = 'Grades',
        y = 'Frequency') +
   theme(legend.position = "none",
-        axis.title = element_text(size = rel(2)),
+        axis.title = element_text(size = rel(2), face = "bold"),
         strip.text = element_text(size = rel(1.5)),
         axis.text.x = element_text(size = rel(1.5)),
         axis.text.y = element_text(size = rel(2)))

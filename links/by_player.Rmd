@@ -31,7 +31,7 @@ all_info %>%
         axis.text.y = element_text(size = rel(1.5)))
 ```
 
-<p id='desc'>From this, you can kind of get an idea how each player fared. It's also interesting to see how the distribution shapes differ between players. For example, some players received much more *partial grades* than others.Was it because more thought was put into them?<br><br> It's also intersting how some players tended to receive a "default" grade. <i>(Donskoi was given a **D** grade much more frequent than his other grades.)</i><br><br>I think this graphic - combined with the next graphic - tell more about the nature of player grades than anything else.</p>
+<p id='desc'>From this, you can kind of get an idea how each player fared. It's also interesting to see how the distribution shapes differ between players. For example, some players received much more <a class="link" href="partial_grades.html">*partial grades*</a> than others.Was it because more thought was put into them?<br><br> It's also intersting how some players tended to receive a "default" grade. <i>(Donskoi was given a **D** grade much more frequent than his other grades.)</i><br><br>I think this graphic - combined with the next graphic - tell more about the nature of player grades than anything else.</p>
 
 <br><br>
 <p id="section">GPA by Player</p>

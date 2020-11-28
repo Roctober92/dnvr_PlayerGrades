@@ -54,11 +54,12 @@ percentage %>%
         strip.text = element_text(size = rel(1.5)),
         axis.text.y = element_text(size = rel(1.5)),
         legend.text = element_text(size = rel(1.5)),
-        legend.title = element_text(size = rel(1.5)))
+        legend.title = element_text(size = rel(1.5))) +
+  scale_fill_manual(values = c('#800000', '#0000ff'))
 
 ```
 
-<p id="desc">Is there a rhyme or reason to why MacKinnon, Jost, and Nichuskin all have high partial grade %?<br><br>If you want to see the actual grade distributions per player, please refer back to the *By Player* section.</p>
+<p id="desc">Is there a rhyme or reason to why MacKinnon, Jost, and Nichuskin all have high partial grade %?<br><br>If you want to see the actual grade distributions per player, please refer back to the <a class="link" href="by_player.html">*by player*</a> section.</p>
 
 <br><br>
 <p id="section">Over Time</p>
@@ -92,7 +93,8 @@ all_info %>%
   theme(axis.text = element_text(size = rel(1.5)),
         axis.title = element_text(size = rel(2), face = "bold"),
         legend.text = element_text(size = rel(1.5)),
-        legend.title = element_text(size = rel(1.5)))
+        legend.title = element_text(size = rel(1.5))) +
+  scale_fill_manual(values = c('#800000', '#0000ff'))
   
 ```
 

@@ -89,7 +89,8 @@ all_info %>%
   ggplot(aes(player, n, fill = half_grade)) + 
   geom_bar(position = 'dodge', stat = 'identity') + 
   facet_wrap(~position, nrow = 3) + 
-  theme(axis.text.x = element_text(angle = 90))
+  theme(axis.text.x = element_text(angle = 90)) +
+  scale_fill_manual(values = c('#800000', '#0000ff'))
 
 
 

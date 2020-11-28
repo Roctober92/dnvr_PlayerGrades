@@ -12,7 +12,7 @@ library(DT)
 <br><br>
 <p id="section">Record & Time</p>
 <br>
-<p id="desc">We'll look at a few graphics that map performance metrics to grades.<br><br>Now, performance can be measured in many different ways. For here, we'll just keep it at *record* and *scoring differential*.<br><br>Below, you can see how the grades map to the monthly record.</p>
+<p id="desc">We'll look at a few graphics that map performance metrics to grades. Now, we know that when the Avs did well, they probably had better grades. My data curiosity just wanted to see it through.<br><br>Now, performance can be measured in many different ways. For here, we'll just keep it at *record* and *scoring differential*.<br><br>Below, you can see how the grades map to the monthly record.</p>
 
 ```{r, message = FALSE, echo = FALSE, warning = FALSE, fig.width=14, fig.height=14}
 setwd('~/github/dnvr_PlayerGrades/r')

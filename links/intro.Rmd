@@ -18,7 +18,7 @@ library(DT)
 <p id="portada">A Little Note About the Data:</p>
 <br><br>
 
-<p id="desc">Since a lot of this was messy, manual data input, there are prone to exists typos and errors: I did my best to validate myself, but it was a lot of freaking inputting.<br><br>Also, there are about 5 games that I, or DNVR, omitted from the data. 3 were missing from DNVR's grades section, and for the last 2 games of each playoff series, DNVR decided to do <i>series grades</i> instead of that specific game. And to maintain consistency, I did not include them.</p>
+<p id="desc">Since a lot of this was messy, manual data input, there are prone to exists typos and errors: I did my best to validate myself, but it was a lot of freaking data input.<br><br>Also, there are about 5 games that I, or DNVR, omitted from the data. 3 were missing from DNVR's grades section, and for the last 2 games of each playoff series, DNVR decided to do <i>series grades</i> instead of that specific game. And to maintain consistency, I did not include them.</p>
 
 <br><br>
 <p id="portada">The Data</p>

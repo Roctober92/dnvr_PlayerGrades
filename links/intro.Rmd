@@ -24,6 +24,8 @@ library(DT)
 <p id="portada">The Data</p>
 <br><br>
 
+<p id="desc"><i><strong>NOTE:</strong> The columns are not lined up well with the data</i></p>
+
 ```{r, message = FALSE, echo = FALSE, warning = FALSE}
 setwd('~/github/dnvr_PlayerGrades/r')
 source('data_wrangle.R', local = knitr::knit_global())

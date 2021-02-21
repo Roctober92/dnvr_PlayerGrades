@@ -12,13 +12,13 @@ library(DT)
 <br><br>
 <p id="portada">La Portada</p>
 <br><br>
-<p id="desc">I think looking through data is always fun. And even though player grades aren't usually made with post-hoc analysis in mind, I always think it would be fun to look through the information regardless, form a few questions. <br><br>Some questions that came to my mind when scanning through the grades week-by-week were: <br><br>*1: Which players had the overall best grades, and does that match up with expectations?*<br>*2: How many partial grades are there, and how does their issuing change over time?*<br>*3: How does the Avs' performance influence the grades?*<br><br>I didn't do a formal/thought-out process of asking questions, forming hypothesis, and then analyzing, but I try to explore a few questions in the provided links.<br><br></p>
+<p id="desc">I think looking through data is always fun. I've been wanting to do a light analysis on the DNVR player grades for a while.<br><br>There may be nothing here in terms of useful information, but there were a few questions and ideas I wanted to ask and explore.</p>
 
 <br><br>
 <p id="portada">A Little Note About the Data:</p>
 <br><br>
 
-<p id="desc">Since a lot of this was messy, manual data input, there are prone to exists typos and errors: I did my best to validate myself, but it was a lot of freaking data input.<br><br>Also, there are about 5 games that I, or DNVR, omitted from the data. 3 were missing from DNVR's grades section, and for the last 2 games of each playoff series, DNVR decided to do <i>series grades</i> instead of that specific game. And to maintain consistency, I did not include them.</p>
+<p id="desc">Since a lot of this was messy, manual data input, there are prone to exists typos and errors: I did my best to validate myself, but it was a lot of data input.<br><br>Also, there are about 5 games that I, or DNVR, omitted from the data. 3 were missing from DNVR's grades section, and for the last 2 games of each playoff series, DNVR decided to do <i>series grades</i> instead of that specific game. And to maintain consistency, I did not include them.</p>
 
 <br><br>
 <p id="portada">The Data</p>

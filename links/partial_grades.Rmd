@@ -98,7 +98,7 @@ all_info %>%
   
 ```
 
-<p id="desc">It kind of seems like nothing's there.<br><br>But keep in mind that the season reached a hiatus in mid-march - and it might have acted like a reset button.<br><br>If I were making tens of grades per month, I'm sure I might change my partial grade issuing pattern - whether that be more, or less. And it seems like until the season hit the mid-march halt, that partial grades were becoming more and more prevalent - and then reset back to less frequent, once the season resumed in late-summer.<br><br>I feel like I could make a lot of assumptions about how the author's thought process affected some patterns we see - but he/they would have to say :)</p>
+<p id="desc">It kind of seems like nothing's there.<br><br>But keep in mind that the season reached a hiatus in mid-march - and it might have acted like a reset button.<br><br>If I were making tens of grades per month, I'm sure I might change my partial grade issuing pattern - whether that be more, or less. And it seems like until the season hit the mid-march halt, that partial grades were becoming more and more prevalent - and then reset back to less frequent, once the season resumed in late-summer.<br><br>I feel like I could make a lot of assumptions about how the author's thought process affected some patterns we see - but they would have to say :)</p>
 
 
 <style>

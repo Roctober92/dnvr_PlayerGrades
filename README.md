@@ -1,7 +1,7 @@
 <img src="pics/dnvr.png" id="center">
 <p id="title">Avalanche Player Grades</p>
 <br>
-<p id="desc">Just having some fun! Any trends in the grades?</p>
+<p id="desc">Some fun with 2019-20 season player grades</p>
 <br><br>
 <ul id="bullet">
   <li id = "list"><a class="link" href="links/intro.html">Short Introduction</a></li>
